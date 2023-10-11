@@ -2,11 +2,33 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 
+
+class InnerComponent extends React.Component
+{
+  render()
+  {
+    return <div>Inner component is here </div>
+  }
+}
+
 class App extends React.Component
 {
+  state ={counter:0, InnerComponent:-InnerComponent/}
+
+}
+
+{
+  state = {counter:10}
   constructor(props)
   {
     super(props)
+    console.log("I am inside constructer")
+  }
+
+  incrementCounter = () =>
+  {
+    this.setState({counter:this.state.counter+1})
+    this.setState({InnerComponent:<div>Unmounted</div>})
   }
 
 render()
